@@ -1,0 +1,107 @@
+<ion-menu [content]="content" type="overlay">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content no-padding>
+    <ion-card no-padding>
+      <!-- <img src="./assets/imgs/menu_logo.jpg" /> -->
+      <!-- <div class="card-title">WOOIONIC</div>
+      <div class="card-subtitle">Keep Shopping</div> -->
+      <h2>Welcome</h2>
+      <p >Bibhudatta Satapathy</p>
+      <p >Mobile - +91-7978394726</p>
+    </ion-card>
+
+    <!-- <ion-item color="light" text-wrap  menuClose  *ngFor="let category of categories" (click)="openCategoryPage(category)">
+      <ion-icon [name]="category.icon" item-left large></ion-icon>
+      <h2> {{ category.name }} </h2>
+      <p> {{ category.description }}</p>
+    </ion-item> -->
+
+    <ion-item  (click)="openPage(homePage)" menuClose>
+      <ion-icon name="home" item-left large></ion-icon>
+      <h2>Home</h2>
+    </ion-item>
+    <ion-item  (click)="openAboutPage() " menuClose>
+      <ion-icon name="contact" item-left large></ion-icon>
+      <h2>About us</h2>
+    </ion-item>
+    <ion-item  (click)="openFaqPage() " menuClose>
+      <ion-icon name="contacts" item-left large></ion-icon>
+      <h2>Contact us</h2>
+    </ion-item>
+    <ion-item  (click)="openFaqPage() " menuClose>
+      <ion-icon name="eye" item-left large></ion-icon>
+      <h2>Help Me</h2>
+    </ion-item>
+  
+    <ion-item  (click)="openFaqPage() " menuClose>
+      <ion-icon name="pricetags" item-left large></ion-icon>
+      <h2>FAQ</h2>
+    </ion-item>
+
+    <ion-item-divider color="danger">Account</ion-item-divider>
+
+    <ion-item (click)="openPage('signup')"  menuClose *ngIf="!loggedIn">
+      <ion-icon name="md-clipboard" item-left large></ion-icon>
+      <h2>Sign Up</h2>
+      <p>For a new account</p>
+    </ion-item>
+
+    <ion-item (click)="openPage('login')" menuClose *ngIf="!loggedIn">
+      <ion-icon name="log-in" item-left large></ion-icon>
+      <h2>Login</h2>
+      <p>Using email and password</p>
+    </ion-item>
+
+    <!-- dynamic menu -->
+    <ion-item *ngIf="loggedIn" menuClose>
+      <ion-icon name="contact" item-left large></ion-icon>
+      <h2>{{ (this.user.firstname == '' ? this.user.username : this.user.firstname) || "" }}</h2>
+      <p>Welcome</p>
+    </ion-item>
+
+    <ion-item *ngIf="loggedIn" (click)="openPage('order')" menuClose>
+      <ion-icon name="basket" item-left large></ion-icon>
+      <h2>Order Details</h2>
+      <p>Check orders</p>
+    </ion-item>
+
+    <ion-item *ngIf="loggedIn" (click)="openPage('cart')" menuClose>
+      <ion-icon name="cart" item-left large></ion-icon>
+      <h2>Your Cart</h2>
+      <p>Check items in your cart</p>
+    </ion-item>
+
+    <ion-item *ngIf="loggedIn" (click)="openPage('logout')" menuClose>
+      <ion-icon name="log-out" item-left large></ion-icon>
+      <h2>Logout</h2>
+      <p>of your Account</p>
+    </ion-item>
+
+    <ion-item-divider color="danger">Policy</ion-item-divider>
+    <ion-item  (click)="openFaqPage() " menuClose>
+      <ion-icon name="card" item-left large></ion-icon>
+      <h2>Privacy Policy</h2>
+    </ion-item>
+    <ion-item  (click)="openFaqPage() " menuClose>
+      <ion-icon name="clipboard" item-left large></ion-icon>
+      <h2>Terms & Condition</h2>
+    </ion-item>
+    <ion-item  (click)="openFaqPage() " menuClose>
+      <ion-icon name="swap" item-left large></ion-icon>
+      <h2>Cancel Order</h2>
+    </ion-item>
+
+  </ion-content>
+
+</ion-menu>
+
+
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="homePage" #content ></ion-nav>

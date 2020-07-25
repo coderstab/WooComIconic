@@ -1,0 +1,131 @@
+
+
+<ion-header>
+  <ion-navbar >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <!-- <ion-title>Home</ion-title> -->
+    <ion-title ><strong style="font-size: 14px;">Deilvery Location</strong></ion-title>
+    <ion-title ><span style="font-size: 12px;">Mathasahi, Bhadarak</span></ion-title>
+    <ion-fab right top  (click)="openCart()">
+      <!-- <span style="
+      bottom: 22px;
+      right: 19px;
+      position: absolute;
+      font-size: 11px;"
+       *ngFor="let item of cartItems; let i = index ">{{cartCount }}
+      </span> -->
+              <button ion-fab color="danger"><ion-icon name="cart"></ion-icon><span>{{ tempLength}}</span></button>
+      
+    </ion-fab>
+    
+  </ion-navbar>
+  
+</ion-header>
+
+<!-- Default Refresher -->
+
+
+<ion-content no-padding >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+<!-- <ion-card>
+<ion-slides pager="true" loop="true" autoplay="3000" >
+  <ion-slide *ngFor="let number of [1,2,3,4]">
+    <img src="./assets/imgs/{{number}}.jpg">
+  </ion-slide>
+</ion-slides>
+</ion-card>
+<img src="../assets/imgs/Bh1.jpg" style="margin-top: 5px "> -->
+<!-- <img src="../assets/imgs/Bh2.jpg"  >
+<img src="../assets/imgs/Bh3.jpg" > -->
+<ion-card>
+  <img src="../assets/imgs/glogo.png" width="150px">
+  <h2 style="color:red;margin:15px;">Welcome to GMaa</h2>
+</ion-card>
+<!-- <img src="../assets/imgs/Bh5.jpg" >
+<img src="../assets/imgs/Bh6.jpg" > -->
+<ion-item-divider color="danger">Categories</ion-item-divider>
+  <ion-row>
+    <ion-col col-4 *ngFor="let category of categories" text-wrap (click)="openCategoryPage(category)">
+      <ion-card>
+        <ion-item>
+          <img [src]="category.image" alt="product-img">
+          <h2 [innerHTML]="category.name">ddddd</h2>
+          <p [innerHTML]="category.description">dddd</p>
+ 
+       
+        </ion-item>
+        </ion-card>
+    </ion-col>
+</ion-row>
+
+<!-- <ion-item-divider color="danger">Latetst Products</ion-item-divider>
+<ion-grid>
+      <ion-row>
+           <ion-slides #productSlides>
+                <ion-slide *ngFor="let product of products">
+                  
+                    <ion-card no-padding>
+                        <img [src]="product.featured_src" width="500" height="250px">
+                        <h1 padding center >{{product.title.substr(0,20) + '...'}}</h1>
+                        <p padding center [innerHTML]="product.short_description.substr(0,150)" style="text-align: justify;"></p>
+                      </ion-card>
+                      </ion-slide>
+                      
+             </ion-slides>
+        </ion-row>
+  </ion-grid> -->
+  
+
+
+
+  <!-- <ion-list>
+      <ion-item *ngFor="let product of  moreProducts" (click)="openProductPage(product)">
+        <ion-thumbnail item-left>
+          <img [src]="product.featured_src">
+          </ion-thumbnail>
+          <h2>{{product.title}}</h2>
+          <p>
+            <span [innerHTML]="product.short_description.substr(0,50) + '...'"> </span><br>
+            <span [innerHTML]="product.price_html"> </span>
+          </p>
+          <button ion-button icon clear item-right>
+            <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+        </ion-item>
+  </ion-list> -->
+  <ion-item-divider color="danger">Products</ion-item-divider>
+  <ion-row>
+    <ion-col col-6 *ngFor="let product of moreProducts" text-wrap (click)="openProductPage(product)">
+      <ion-card>
+      <ion-item >
+        <ion-thumbnail >
+          <img [src]="product.featured_src" alt="">
+        </ion-thumbnail>
+        <h2 [innerHTML]="product.title.substr(0,18) + '...'"></h2>
+        <p>  <span [innerHTML]="product.price_html"></span> </p>
+
+        <!-- <button ion-button icon clear >
+          <ion-icon name="arrow-forward"></ion-icon>
+
+        </button>     -->
+        <!-- <ion-row>
+        <button ion-fab color="danger"><ion-icon name="cart"> </ion-icon></button>
+        <span style="font-size:20px;">Buy Now</span>
+        </ion-row> -->
+       
+      </ion-item>
+      </ion-card>
+
+  </ion-col>
+    </ion-row>
+
+  <ion-infinite-scroll (ionInfinite)="loadMoreProducts($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>
+

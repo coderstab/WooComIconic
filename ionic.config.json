@@ -1,0 +1,7 @@
+{
+  "name": "Genstore",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
